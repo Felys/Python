@@ -1,0 +1,97 @@
+import math
+math.sqrt(2)
+
+print (print_lyric(a))
+a = 'aaaaaaaaaaaaaaaaaaaaa'
+def print_lyric(a):
+    if a:
+        return print (a)
+print (print_lyric(a))
+
+
+a = 1
+b = 2
+def added (a,b):
+    added_result = a + b
+    return added_result
+
+print (added(a,b))
+
+'''
+Rewrite your pay computation with time-and-a-half for overtime and create a function called computepay which takes
+two parameters (hours and rate).Enter Hours: 45
+Enter Rate: 10
+Pay: 475.0
+'''
+
+hours = input('Enter hours')
+rate = input('Enter rate')
+def compute_pay (hours , rate):
+    try:
+        if int(hours) > 40:
+            compute_result = float(hours) * float(rate) * 1.5
+        else:
+            compute_result = float(hours) * float(rate)
+        return compute_result
+    except:
+        return 'Please insert number'
+
+print(compute_pay(hours,rate))
+
+'''
+Exercise 7   Rewrite the grade program from the previous chapter using a function called computegrade that takes a
+score as its parameter and returns a grade as a string.
+Score   Grade
+> 0.9     A
+> 0.8     B
+> 0.7     C
+> 0.6     D
+<= 0.6    F
+
+Program Execution:
+
+Enter score: 0.95
+A
+
+Enter score: perfect
+Bad score
+
+Enter score: 10.0
+Bad score
+
+Enter score: 0.75
+C
+
+Enter score: 0.5
+F
+
+
+Run the program repeatedly to test the various different values for input.
+'''
+
+score = input('Please insert score')
+
+def computegrade(score):
+    try:
+        if float(score) <= 1.0 and float(score) >= 0.9:
+            return 'A'
+        elif float(score) < 0.9 and float(score) >= 0.8:
+            return'B'
+        elif float(score) < 0.8 and float(score) >= 0.7:
+            return'C'
+        elif float(score) < 0.7 and float(score) >= 0.6:
+            return'D'
+        elif float(score) < 0.6:
+            return'F'
+        elif float(score) > 1.0:
+            return'Bad Score'
+    except:
+        return'Bad Score'
+
+print (computegrade(score))
+
+
+
+
+
+

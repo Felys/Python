@@ -1,0 +1,12 @@
+n = 5
+while True:
+    print (n)
+    n = n-1
+print('blast off')
+
+while True:
+    line = input('insert coins')
+    if line == 'done':
+        break
+    print (line)
+print ('Done')

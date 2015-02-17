@@ -1,0 +1,109 @@
+fruit = 'banana'
+print (len(fruit))
+letter = fruit[0]
+print (letter)
+
+fruit = 'banana'
+fruit_len = len(fruit)
+index = 0
+while index < fruit_len:
+    print (fruit[index])
+    index = index + 1
+
+fruit = 'banana'
+fruit_len = len(fruit)
+index = len(fruit)-1
+while True:
+    print (fruit[index])
+    index = index - 1
+    if index < 0:
+        break
+
+
+char = 'banana'
+for i in char:
+    print(i)
+
+char = 'banana'
+new_char = 'c' + char[1:]
+print(new_char)
+
+word = 'banana'
+count = 0
+for letter in word:
+    if letter == 'a':
+        count = count+1
+print (count)
+
+
+word = 'banana'
+count = 0
+for letter in word:
+    if letter == 'a':
+        count = count+1
+print (count)
+
+word = 'banana'
+char = 'a'
+def count_letters(word, char):
+    count = 0
+    for c in word:
+        if char == c:
+            count += 1
+    return count
+print(count_letters(word, char))
+
+word = 'banana'
+char = 'a'
+def count_letter(word,char):
+    count = 0
+    for i in word:
+        if char == i:
+            count = count+1
+    return count
+
+print(count_letter(word,char))
+
+word = 'banana'
+new_word = word.upper()
+print(new_word)
+
+word = 'banana'
+find_word = word.find('a',2)
+print(find_word)
+
+
+
+
+
+'''
+Exercise 5   Take the following Python code that stores a string:‘
+str = ’X-DSPAM-Confidence:  0.8475’
+
+
+Use find and string slicing to extract the portion of the string after the colon character and then use the float
+function to convert the extracted string into a floating point number.
+'''
+data = 'X-DSPAM-Confidence:  0.8475'
+first_start = data.find(':')
+extract = (data[first_start+1:])
+float_trans = float(extract)
+print(float_trans)
+
+camels = 42
+print('%d camels'% name)
+
+name = 'bububu'
+print("hi there %s" % camels)
+
+name = 'bububu'
+camels = 42
+print ('{0} has {1} camels '.format(name,camels))
+
+str = 'this is a string'
+print (str.replace('is','was',1))
+
+
+
+
+

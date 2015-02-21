@@ -75,8 +75,6 @@ RECEIVED: FROM MURDER (MAIL.UMICH.EDU [141.211.14.90])
 
 You can download the file from www.py4inf.com/code/mbox-short.txt
 '''
-fhand = open('mbox.txt')
-fread = fhand.read()
 
 user_input = input('Enter a file name:')
 file_name = open(user_input)
@@ -147,4 +145,12 @@ except:
     else:
         print('File cannot be opened: {0}'.format(user_input))
 
+increment = 1
+total = 0
+while increment < 3 :
+    increment = increment+1
+    print('this is increment {0}'.format(increment))
+    total = increment+total
+    print('this is total {0}'.format(total))
 
+print(total)

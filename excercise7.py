@@ -4,12 +4,12 @@ fhand = open('mbox.txt')
 print (fhand)
 
 fhand = open('mbox.txt')
-inp = fhand.read()
-print (inp[:20])
+user_input = fhand.read()
+print (user_input[:20])
 
 str = 'this is a string'
-inp = str[8:]
-print(inp)
+user_input = str[8:]
+print(user_input)
 
 fhand = open('mbox.txt')
 fread = fhand.read()
@@ -78,21 +78,73 @@ You can download the file from www.py4inf.com/code/mbox-short.txt
 fhand = open('mbox.txt')
 fread = fhand.read()
 
-inp = input('Enter a file name:')
-file_name = open(inp)
-text = file_name.read()
-for i in text:
-    if not i.find('') == -1:
-        continue
-    start_index = i.find('From stephen.marquard@uct.ac.za Sat Jan  5 09:14:16 2008')
-    stop_index = i.find('Sat',start_index)
-    print(i[start_index:stop_index])
+user_input = input('Enter a file name:')
+file_name = open(user_input)
+for i in file_name:
+    i = i.rstrip().upper()
+    print(i)
 
-elif i.find('RETURN-PATH: <POSTMASTER@COLLAB.SAKAIPROJECT.ORG>')==-1:
-        continue
-    elif i.find('RECEIVED: FROM MURDER (MAIL.UMICH.EDU [141.211.14.90])')==-1:
-        continue
-    elif i.find('BY FRANKENSTEIN.MAIL.UMICH.EDU (CYRUS V2.3.8) WITH LMTPA')==-1:
-        continue
-    elif i.find('SAT, 05 JAN 2008 09:14:16 -0500')==-1:
-        continue
+'''
+Exercise 2   Write a program to prompt for a file name, and then read through the file and look for lines of the form:
+X-DSPAM-Confidence:  0.8475
+
+
+When you encounter a line that starts with “X-DSPAM-Confidence:” pull apart the line to extract the floating point number
+ on the line. Count these lines and the compute the total of the spam confidence values from these lines. When you reach
+  the end of the file, print out the average spam confidence.
+Enter the file name: mbox.txt
+Average spam confidence: 0.894128046745
+
+Enter the file name: mbox-short.txt
+Average spam confidence: 0.750718518519
+
+
+Test your file on the mbox.txt and mbox-short.txt files.
+'''
+
+user_input = input('Enter the file name')
+file_handler = open(user_input)
+total = 0
+count = 0
+for i in file_handler:
+    i = i.rstrip()
+    if i.startswith('X-DSPAM-Confidence:'):
+        i = i[20:]
+        i = float(i)
+        total = i + total
+        count = count + 1
+avg = total/count
+print('Average spam confidence: {0}'.format(avg))
+
+'''
+ Modify the program that prompts the user for the file name so that it prints a funny message when the user types in the
+  exact file name ’na na boo boo’. The program should behave normally for all other files which exist and don’t exist.
+  Here is a sample execution of the program:python egg.py
+
+Enter the file name: mbox.txt
+There were 1797 subject lines in mbox.txt
+
+python egg.py
+Enter the file name: missing.tyxt
+File cannot be opened: missing.tyxt
+
+python egg.py
+Enter the file name: na na boo boo
+NA NA BOO BOO TO YOU - You have been punk'd!
+'''
+
+user_input = input('Enter the file name: ')
+try:
+    line = 0
+    file = open(user_input)
+    for i in file:
+        if i.startswith('Subject:'):
+            line = line + 1
+    print('There were {0} subject lines in {1}'.format(line,user_input))
+except:
+    if user_input == ('na na boo boo'):
+        print("NA NA BOO BOO TO YOU - You have been punk'd!")
+    else:
+        print('File cannot be opened: {0}'.format(user_input))
+
+
